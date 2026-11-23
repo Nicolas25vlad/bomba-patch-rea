@@ -2,7 +2,16 @@
 
 ## Mission
 
-Investigate locally supplied, legally obtained PS2 game images to understand gameplay behavior and file formats. Produce traceable technical notes that may inform an **independent** implementation for TRS. This repository is a research workspace, not the TRS game repository.
+Investigate locally supplied, legally obtained PS2 game images to understand gameplay behavior, physics, animation systems, and file formats. Produce traceable technical notes, useful analysis code, and reproducible experiments.
+
+This is an **independent, personal research project**. It is not part of the TRS organization, is not governed by TRS milestones, and does not have to produce anything for TRS. Its findings might be useful to other independent projects in the future, but that is optional and must not steer the research without an explicit request.
+
+## Canonical repository
+
+- GitHub: **https://github.com/Nicolas25vlad/bomba-patch-rea**
+- Owner: `Nicolas25vlad`, outside the TRS organization.
+- Keep research notes and original analysis tooling in this repository. Keep extracted game content only in ignored local directories.
+- Never use a TRS repository as a destination for this investigation unless the user specifically asks.
 
 ## Priorities
 
@@ -45,7 +54,7 @@ Local working files belong under `work/` and must not be committed. Suggested pa
 - `work/reports/morning-summary.md`
 - `work/state.json`
 
-Only curated, license-safe notes may eventually be promoted to `research/` after review.
+Only curated, publishable notes and original source-code tooling may eventually be promoted to `research/` after review.
 
 Each finding should include:
 
@@ -59,7 +68,10 @@ Each finding should include:
 
 - Never modify or overwrite the original ISO.
 - Never execute extracted binaries directly on the host.
-- Never commit proprietary game assets, executables, discs, BIOS files, or extracted binary blobs.
+- **Highest publication risk: copyrighted game assets.** Never commit, upload, embed, or publish extracted textures, images, sprites, 3D models, meshes, skeletons, animations, audio, video, UI artwork, fonts, or other commercial media assets. This includes derivatives, converted formats, thumbnails, base64 encodings, and copies hidden inside archives or reports.
+- Never commit ISOs, BIOS files, game executables, extracted binary blobs, or disc contents; keep them under ignored `work/` for local analysis only.
+- **Textual code is not automatically prohibited.** Original scripts, analysis tools, algorithms, tests, technical notes, pseudocode, and small annotated disassembly/decompiler excerpts may be kept where appropriate. Always document their provenance. Do not assume that decompilation removes copyright: avoid publishing substantial proprietary source code or full program listings/dumps converted to text. Check licenses and obtain review before publishing uncertain material.
+- Before every public push, inspect staged files for commercial assets or encoded/embedded copyrighted content. If unsure, keep the file local and report the uncertainty.
 - Do not install packages, use sudo, edit system configuration, or download additional third-party tools without user approval.
 - Do not touch the TRS repository without explicit authorization.
 - Do not push commits, publish reports, or modify remote repositories unless the user explicitly requests it for that action.
@@ -73,5 +85,5 @@ Each finding should include:
 2. Function index and call relationships with evidence.
 3. Movement and ball-physics behavioral specifications.
 4. Model and animation format notes.
-5. Rust/WASM implementation recommendations, clearly separate from proprietary code.
+5. Original analysis scripts, experiments, and technology-neutral behavioral specifications when useful.
 6. Human-readable morning summary and resumption plan.

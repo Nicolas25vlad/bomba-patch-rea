@@ -90,7 +90,8 @@ Para um executável já identificado:
 
 ```bash
 ghidra-analyzeHeadless work/ghidra-projects PS2Research \
-  -import /caminho/real/do/executavel +  -processor r5900:LE:32:default \
+  -import /caminho/real/do/executavel \
+  -processor r5900:LE:32:default \
   -analysisTimeoutPerFile 900
 ```
 

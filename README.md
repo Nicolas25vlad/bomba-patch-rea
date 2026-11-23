@@ -2,7 +2,7 @@
 
 <p align="center">
   <strong>Reverse engineering de futebol no PlayStation 2 — uma função por vez.</strong><br>
-  Um laboratório independente para estudar gameplay, física e animações e documentar implementações equivalentes para a web.
+  Um laboratório independente para estudar gameplay, física, animações e formatos de jogos de futebol do PS2.
 </p>
 
 <p align="center">
@@ -14,19 +14,23 @@
 <p align="center">
   <img alt="Ghidra" src="https://img.shields.io/badge/Ghidra-Headless-F97316?style=flat-square">
   <img alt="REA" src="https://img.shields.io/badge/REA-Agentic%20RE-A855F7?style=flat-square">
-  <img alt="Target" src="https://img.shields.io/badge/target-Rust%20%2B%20WASM-0F766E?style=flat-square">
+  <img alt="Focus: Research" src="https://img.shields.io/badge/focus-Technical%20Research-0F766E?style=flat-square">
   <img alt="Language" src="https://img.shields.io/badge/docs-PT--BR-16A34A?style=flat-square">
 </p>
 
 > [!IMPORTANT]
-> **Este repositório não contém jogos, ISOs, BIOS, código proprietário ou assets comerciais.**
+> **Este repositório não distribui jogos, ISOs, BIOS, executáveis ou assets comerciais.**
 > É um projeto independente de pesquisa e documentação; não possui afiliação com a equipe Bomba Patch, a Konami ou a Sony.
+
+**Repositório oficial desta pesquisa:** [Nicolas25vlad/bomba-patch-rea](https://github.com/Nicolas25vlad/bomba-patch-rea).
 
 ## 🎯 Missão
 
-Entender tecnicamente como jogos de futebol para PS2 se comportam e transformar as descobertas **comprovadas** em especificações para implementações próprias no **TRS (Traficas Revolution Soccer)**, um jogo de futebol para navegador.
+Entender tecnicamente como jogos de futebol para PS2 se comportam e transformar as descobertas **comprovadas** em documentação, experimentos reproduzíveis, ferramentas de análise e especificações de comportamento.
 
-O objetivo não é portar um executável do PS2 ou publicar conteúdo extraído: é pesquisar, comparar e reconstruir comportamentos de forma independente.
+**Este projeto é independente do TRS e da organização TRS.** Não tem obrigação de produzir recursos para o jogo, seguir seu roadmap nem alterar seus repositórios. O conhecimento poderá eventualmente ajudar outros projetos, inclusive o TRS, apenas se isso for decidido separadamente.
+
+O objetivo não é redistribuir um jogo de PS2 ou publicar seus assets: é pesquisar, comparar e documentar comportamentos e formatos de forma independente.
 
 | Prioridade | Área de estudo | Perguntas principais |
 | :-- | :-- | :-- |
@@ -61,7 +65,7 @@ flowchart TD
     Assets --> Evidence
     Evidence --> Validation["Experimentos e validação"]
     Validation --> Specs["Specs de comportamento"]
-    Specs --> Web["Implementação independente no TRS"]
+    Specs --> Outcome["Documentação e protótipos independentes"]
 ```
 
 ## 🚀 Início rápido no Omarchy
@@ -105,7 +109,7 @@ O laboratório foi pensado para sessões longas com agentes, incluindo execuçõ
 - Registrar fonte, endereço/offset, hash e grau de confiança de cada descoberta.
 - Impor timeouts e limites de concorrência; evitar loops sem progresso.
 - Continuar por caminhos seguros quando uma hipótese falhar.
-- Produzir um resumo para revisão humana antes de qualquer implementação no TRS.
+- Produzir um resumo para revisão humana, sem pressupor integração com outro projeto.
 
 As regras operacionais detalhadas estão em **[AGENTS.md](AGENTS.md)**.
 
@@ -124,6 +128,10 @@ Os diretórios `research/` e `work/` são **planejados** e podem ser criados con
 
 ## ⚖️ Limites e atribuição
 
-Este projeto é voltado a pesquisa, interoperabilidade e documentação. Direitos sobre Bomba Patch, Pro Evolution Soccer/Winning Eleven, PlayStation e seus respectivos conteúdos pertencem a seus titulares. **Não faça upload de imagens de disco, BIOS, binários, modelos, texturas, áudio ou animações extraídos.**
+Este projeto é voltado a pesquisa, interoperabilidade e documentação. Direitos sobre Bomba Patch, Pro Evolution Soccer/Winning Eleven, PlayStation e seus respectivos conteúdos pertencem a seus titulares.
+
+**Prioridade máxima: não publicar assets de terceiros** — imagens, texturas, modelos, esqueletos, animações, áudio, vídeos e outros conteúdos comerciais extraídos. ISOs, BIOS e executáveis também permanecem locais e fora do Git.
+
+Código textual de autoria própria, ferramentas, pseudocódigo e pequenos trechos técnicos comentados podem compor a pesquisa. Isso não torna automaticamente livre de direitos um código proprietário descompilado: evitar reproduzir fontes ou dumps completos, registrar a origem dos trechos e revisar conteúdo duvidoso antes de publicar. As orientações para o agente estão no [AGENTS.md](AGENTS.md).
 
 **Feito para aprender como a bola rola — e construir nossa própria física.** ⚽

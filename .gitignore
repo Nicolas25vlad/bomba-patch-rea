@@ -1,0 +1,48 @@
+# Local PS2 disc images and proprietary game data
+*.iso
+*.ISO
+*.bin
+*.BIN
+*.cue
+*.chd
+*.img
+*.afs
+*.AFS
+*.elf
+*.ELF
+*.irx
+*.IRX
+*.isz
+*.mdf
+*.mds
+
+# Compressed disc/archive transfers
+*.7z
+*.rar
+*.zip
+*.zst
+
+# Local research workspace and generated artifacts
+/work/
+/raw/
+/extracted/
+/dump/
+/dumps/
+/isos/
+/ghidra-projects/
+/logs/
+/tmp/
+/temp/
+
+# Ghidra project databases
+*.gpr
+*.rep/
+*.lock
+
+# System and editor cruft
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+__pycache__/
+*.pyc

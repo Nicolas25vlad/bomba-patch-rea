@@ -17,12 +17,14 @@
 ## Executável e limite atual
 
 - `readelf -SW` mostrou 45 cabeçalhos de seção, sem `.mdebug`, `.debug_*`, `.pdr` ou seções de relocação; `.symtab` e `.strtab` são vazias. `.comment` declara `MW MIPS C Compiler (2.4.1.01)` e `PlayStation2`.
-- LLVM 23.1.3 reconhece `r5900`, mas a decodificação local é parcial e deixa instruções como `<unknown>`. O provedor REA disponível rejeitou a arquitetura. PCSX2 e outros disassemblers PS2 consultados não estão instalados.
-- **Não há conclusões sobre movimentação, física da bola ou animações.** Nomes de módulos e strings não foram tratados como prova de comportamento.
+- LLVM 23.1.3 reconhece `r5900`, mas sua decodificação local é parcial. O provedor REA disponível rejeitou a arquitetura. A extensão Ghidra Emotion Engine Reloaded v2.1.38 foi instalada no perfil do usuário; a análise headless reconheceu `r5900:LE:32:default` no executável.
+- O entry chama `FUN_0011fe60`, cujo loop por frame chama `FUN_0014f260`, condicionalmente `FUN_001757a0`, e os dispatchers/callbacks `FUN_00120a60`, `FUN_00120d00` e `FUN_001200f0`.
+- `FUN_0014f260` chama um alvo externo em `0x009b41b0` e altera o fluxo conforme o estado global `uGpffff8058`; isso ainda não comprova leitura do controle nem ligação com movimento. `FUN_001757a0` despacha com base em `iRam004f0a50`; seus handlers não estão classificados.
+- **Movimentação, física da bola e animações continuam sem conclusão.** Esta é uma trilha estática inicial, não execução nem observação dinâmica.
 
 ## Próxima etapa
 
-O repositório [Ghidra Emotion Engine: Reloaded](https://github.com/chaoticgd/ghidra-emotionengine-reloaded) publica a release [v2.1.38](https://github.com/chaoticgd/ghidra-emotionengine-reloaded/releases/tag/v2.1.38), que declara suporte ao Ghidra 12.1.4 instalado e inclui suporte ao R5900/Emotion Engine. A instalação user-scoped foi autorizada; ainda precisa ser baixada, verificada pelo SHA-256 publicado e testada contra `SLPM_663.74` antes de qualquer conclusão de gameplay.
+Seguir o dispatcher `FUN_00120d00` e a tabela em `0x003570c8`, além de mapear callbacks/estruturas usados pelos handlers. Confirmar referências a entidades e fluxo de valores antes de atribuir nomes de gameplay. A ferramenta está instalada; não é necessário baixar outra.
 
 ## Limites de publicação
 
